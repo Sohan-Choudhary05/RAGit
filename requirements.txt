@@ -23,3 +23,4 @@ flask-jwt-extended
 werkzeug
 sqlalchemy
 flask_migrate
+GitPython
