@@ -1,25 +1,25 @@
 langchain
-langchain-community
-langchain-openai
-langchain-huggingface
-langchain-text-splitters
-langchain-chroma
+langchain_community
+langchain_openai
+langchain_huggingface
+langchain_text_splitters
+langchain_chroma
 
 ipykernel
-python-dotenv
+python_dotenv
 pypdf
 bs4
 arxiv
 pymupdf
 wikipedia
 chromadb
-sentence-transformers
-faiss-cpu
+sentence_transformers
+faiss_cpu
 tqdm
 
 flask
-flask-sqlalchemy
-flask-jwt-extended
+flask_sqlalchemy
+flask_jwt_extended
 werkzeug
 sqlalchemy
 flask_migrate
