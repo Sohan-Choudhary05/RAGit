@@ -12,3 +12,4 @@ sentence-transformers
 python-dotenv
 requests
 tiktoken
+streamlit
