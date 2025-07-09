@@ -24,3 +24,4 @@ werkzeug
 sqlalchemy
 flask_migrate
 GitPython
+ollama
