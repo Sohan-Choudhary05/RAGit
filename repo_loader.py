@@ -1,6 +1,6 @@
 import os
 import shutil
-from git import Repo
+from git import GitCommandError, Repo
 
 # Function for cloning a repositry
 
