@@ -1,17 +1,29 @@
 import os
 import shutil
-from git import GitCommandError, Repo
+import stat
+import time
+from git import Repo, GitCommandError
 
 # Function for cloning a repositry
+def handle_remove_readonly(func, path, _):
+    """
+    Helper to force remove read-only files on Windows
+    """
+    os.chmod(path, stat.S_IWRITE)
+    func(path)
 
 def clone_repo(repo_url, clone_dir="repo_temp"):
     try:
         if os.path.exists(clone_dir):
-            shutil.rmtree(clone_dir)
-        print("Cloning repositry...")
+            print("🧹 Cleaning old repo_temp...")
+            shutil.rmtree(clone_dir, onerror=handle_remove_readonly)
+            time.sleep(0.5)  # give Windows time to release handles
+
+        print("🔄 Cloning repository...")
         Repo.clone_from(repo_url, clone_dir)
         print(f"✅ Repo cloned to: {clone_dir}")
         return clone_dir
+
     except GitCommandError as e:
         print(f"❌ Git error: {e}")
         return None

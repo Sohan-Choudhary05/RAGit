@@ -20,5 +20,10 @@ def db_drop():
     db.drop_all()
     print("Database dropped successfully")
 
+# =====================================
+# ✅ RAG API ROUTES
+# =====================================
+
+
 
 import routes
