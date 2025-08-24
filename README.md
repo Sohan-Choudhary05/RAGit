@@ -1,13 +1,13 @@
 # RAGit – Open-Source RAG on GitHub Repos
 
-RAGit is an end-to-end Generative AI project that enables users to query any GitHub repository using Retrieval-Augmented Generation (RAG). It can answer questions about code, generate summaries, and even auto-create README files.
+RAGit is an end-to-end Generative AI project that enables users to query any GitHub repository using Retrieval-Augmented Generation (RAG). It can answer questions about code, generate summaries.
 
 ## 🛠️ Technology Stack
 
 This project uses:
-* **LangChain** & **LangGraph** for orchestration
-* **FAISS/Chroma** for vector storage
-* **Llama2/Zephyr** as the LLM
+* **LangChain** for orchestration
+* **FAISS** for vector storage
+* **Ollama Mistral** as the LLM
 * **Flask** as the backend API
 
 ## 🚀 Setup
@@ -27,7 +27,7 @@ This project uses:
 
 3. **Run the Flask server**
    ```bash
-   python app.py
+   python run.py
    ```
 
    The server will start at:
@@ -39,7 +39,7 @@ This project uses:
 
 ### 1. Import Repo & Build Knowledge Base
 
-**POST** `http://127.0.0.1:5000/api/load_repo`
+**POST** `http://127.0.0.1:5000/api/process_repo`
 
 **Body (JSON):**
 ```json
@@ -51,13 +51,13 @@ This project uses:
 **✅ Response:**
 ```json
 {
-  "message": "Repository indexed successfully"
+  "message": "Repo processed and embedded successfully"
 }
 ```
 
 ### 2. Ask Questions about the Repo
 
-**POST** `http://127.0.0.1:5000/api/query`
+**POST** `http://127.0.0.1:5000/ask`
 
 **Body (JSON):**
 ```json
@@ -72,25 +72,6 @@ This project uses:
   "answer": "The main.py file initializes the environment..."
 }
 ```
-
-### 3. Generate README for the Repo
-
-**POST** `http://127.0.0.1:5000/api/generate_readme`
-
-**Body (JSON):**
-```json
-{
-  "repo_url": "https://github.com/openai/gym"
-}
-```
-
-**✅ Response:**
-```json
-{
-  "readme": "# Project Title\n\nThis repo provides..."
-}
-```
-
 ## 🚀 Features
 
 - **Repository Indexing**: Automatically clone and index any public GitHub repository
